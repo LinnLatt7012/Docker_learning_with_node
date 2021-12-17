@@ -2,6 +2,6 @@ node_modules
 Dockerfile
 .git
 .gitignore
-command.txt
+commandandcode.txt
 docker-compose.*
 Readme.md
