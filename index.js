@@ -8,7 +8,6 @@ const {
     MONGO_PASSWORD, 
 } = require('./config/config')
 const port = process.env.PORT || 3000
-)
 let cors = require('cors')
 const  userRouter = require("./routes/user")
 const mongourl = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`
