@@ -10,7 +10,7 @@ services:
       - MONGO_USER=linnlatt
       - MONGO_PASSWORD=7012
     volumes:
-      - ./:/app
-      - /app/node-modules
+      - ./:/app:ro
+      - /app/node_modules
     command: npm run dev
     
