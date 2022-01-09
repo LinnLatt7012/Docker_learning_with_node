@@ -8,6 +8,8 @@ const {
     MONGO_PASSWORD, 
 } = require('./config/config')
 const port = process.env.PORT || 3000
+)
+let cors = require('cors')
 const  userRouter = require("./routes/user")
 const mongourl = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`
 const mongodbWithRetry = ()=>{
@@ -24,8 +26,14 @@ const mongodbWithRetry = ()=>{
 
 mongodbWithRetry()
 
-app.get("/",(req,res)=>{
-    res.send("<h2>Hi Hereaa</h2>")
+app.use(express.urlencoded({ extended: true}))
+app.enable("trust proxy")
+
+app.use(express.json())
+app.enable("trust proxy")
+app.get("/api/v1",(req,res)=>{
+    console.log("it ran")
+    res.send("<h1>it ran</h1>")
 })
 app.use("/api/v1/user",userRouter);
 

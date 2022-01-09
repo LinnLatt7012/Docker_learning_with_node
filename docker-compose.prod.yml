@@ -8,4 +8,6 @@ services:
     environment:
       - NODE_ENV=production
     command: node index.js
-    
+  nginx:
+    ports:
+      - "80:80"
