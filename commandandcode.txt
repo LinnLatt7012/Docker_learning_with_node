@@ -3,7 +3,11 @@ docker-compose -f docker-compose.yml -f docker-compose.dev.yml down
 docker logs -f container_name
 docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d -V
 docker-compose -f docker-compose.yml -f docker-compose.prod.yml down
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml push node-app
 
+docker swarm
+docker swarm init --advertise-addr ip-address
+docker stack deploy -c docker-compose.yml -c docker.compose.prod.yml myapp
 module.exports ={
     MONGO_IP: process.env.MONGO_IP || "mongo",
     MONGO_PORT:process.env.MONGO_PORT || 27017,
