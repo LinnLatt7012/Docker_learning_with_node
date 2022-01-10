@@ -1,8 +1,8 @@
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --no-deps node-app 
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml down
 docker logs -f container_name
-
-
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d -V
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml down
 
 module.exports ={
     MONGO_IP: process.env.MONGO_IP || "mongo",
